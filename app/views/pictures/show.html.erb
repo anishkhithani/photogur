@@ -1,4 +1,4 @@
-<%= link_to "Back to Pictures", pictures_path %>
+<%= link_to "Back to Pictures", pictures_path %> | <%= link_to "Edit Pictures", edit_picture_path(@picture) %>
 <p><%= @picture[:title]%>, <%= @picture[:artist]%></p>
 <%= image_tag @picture[:url] %>
 

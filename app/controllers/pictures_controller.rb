@@ -18,11 +18,22 @@ class PicturesController < ApplicationController
       redirect_to pictures_path
     else
       #otherwise show the new form again so they can fill it out properly
-      render pictures_new_path
+      render :new
     end
 
   end
 
+  def edit
+    @picture = Picture.find(params[:id])
+  end
 
+  def update
+    @picture = Picture.find(params[:id])
+    if @picture.update_attributes(params[:picture])
+      redirect_to "/pictures/#{@picture.id}"
+    else
+      render :edit
+    end
+  end
 
 end
